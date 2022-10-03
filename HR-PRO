@@ -1,0 +1,130 @@
+class Employee:
+    
+  mng=[{'name':"saleh",'age':50,'sal':"2000"},{'name':"jasm",'age':38,'sal':"1050"}]
+  employees = [{'name':"yousef",'age':38,'sal':"1000"}] 
+  
+  def __init__(self, name, age, sal, doj):
+        self.name = name
+        self.age = age
+        self.sal=sal
+        self.doj=doj
+        
+  def anualsal(self):
+        return self.sal*12
+    
+      
+
+  def addemp(self):
+      
+      
+      n = int(input('Enter the number of employee: ')) 
+      # employees = {}
+      
+      for i in range(n):
+        self.name=(input("Enter emp name:\t"))
+        self.age = input("Enter age:\t")
+        self.sal = input("Enter salary:\t")
+        self.doj = input("Enter working years:\t")
+        Employee.employees.append({'name',self.name})
+        Employee.employees.append({'age',self.age})
+        Employee.employees.append({'sal',self.sal})
+        Employee.employees.append({'doj',self.doj})
+        # Employee.employees['age'].append(self.age)
+        # Employee.employees['sal'].append(self.sal)
+        # Employee.employees['doj'].append(self.doj)
+        # {'name':self.name,'age':self.age,'salary': self.sal,'doj':self.doj}
+        
+  def showemp(self):
+      # for em in Employee.employees:
+      #   for s in em:
+      #      print(s)
+      print(Employee.employees)
+        # print(f"name:,{self.name}/age:,{self.age}/:salary:,{self.sal}/working year:,{self.doj}")
+       
+  def __str__(self):
+        return f"name:,{self.name}age:,{self.age}salary:,{self.sal}working year:,{self.doj}"
+    
+    
+    
+   #Employee class here
+
+class Manager(Employee):
+  def __init__(self, name, age, sal, doj):
+        super().__init__(name, age, sal, doj)
+        
+        
+    #Manager class here
+  def getbonus(self):
+        return self.sal * (20/100)
+  def addmng(self):  
+    
+      n = int(input('Enter the number of employee: ')) 
+      for i in range(n):
+        self.name=(input("Enter emp name:\t"))
+        self.age = int(input("Enter age:\t"))
+        self.sal = input("Enter salary:\t")
+        self.doj = input("Enter working years:\t")
+        Employee.mng.append({'name',self.name})
+        Employee.mng.append({'age',self.age})
+        Employee.mng.append({'sal',self.sal})
+        Employee.mng.append({'doj',self.doj})
+        # Employee.mng["name"].append(self.name)
+        # Employee.mng['age'].append(self.age)
+        # Employee.mng['sal'].append(self.sal)
+        # Employee.mng['doj'].append(self.doj)
+        # Employee.mng['id'] = {'name':self.name,'age':self.age,'salary': self.sal,'doj':self.doj}
+        
+  def showmang(self):
+      # for value in Employee.mng:
+      #   print(value)
+      print(Employee.mng)
+    # def showmang(self):
+    #     print(f"name:,{self.name}age:,{self.age}salary:,{self.sal}working year:,{self.doj}bonus:,{self.getbonus}")
+    # def addmng(self):
+    #    self.name=(input("Enter emp name:\t"))
+    #    self.age =int(input("Enter age:\t"))
+    #    self.sal = input("Enter salary:\t")
+    #    self.doj = input("Enter working years:\t") 
+  def __str__(self):
+       return f"name:,{self.name}age:,{self.age}salary:,{self.sal}working year:,{self.doj}bonus:,{self.getbonus}"
+  def menu(self):
+        print("Welcome to Employee Management Record")
+        print("Press ")
+        print("1 to show all emp list")
+        print("2 to show  manager")
+        print("3 to add emp")
+        print("4 to add manager")
+        print("5 to Exit")
+        ch = int(input("Enter your Choice "))
+        if ch == 1:
+         self.showemp()
+         self.menu()
+        elif ch == 2:
+         self.showmang()
+         self.menu()
+        elif ch == 3:
+         self.addemp()
+         self.menu()
+        elif ch == 4:
+         self.addmng()
+         self.menu()
+        elif ch == 5:
+         exit(0)
+        else:
+          print("Invalid Choice")   
+def main():
+
+ # emp1=Employee("yousef",37,2000,17)
+ # emp2=Employee("naif",20,1000,12)
+ ma=Manager("Rashed",50,4000,25)
+ ma.menu()
+
+#  emp1.addemp()
+#  emp2.addemp()
+#  ma.addmng()
+ 
+     
+     
+     
+if __name__ == '__main__':
+	main()
